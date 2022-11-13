@@ -1,0 +1,28 @@
+Fourth: Communicate with Stakeholders
+
+Construct an email or slack message that is understandable to a product or business leader who isn’t familiar with your day to day work. 
+This part of the exercise should show off how you communicate and reason about data with others. 
+Commit your answers to the git repository along with the rest of your exercise.
+
+1.What questions do you have about the data?
+Where the data comes from and what is the data source?
+Who need the data analysis result and what is the goal of the data analysis?
+
+2.How did you discover the data quality issues?
+I did some data explore analysis in notebook by using python script. First I tranfer the json file to a dataframe data structure which is 
+easier for me to debug the issue in the data. Then by understanding the meaning the column, I did some analysis to check if there is some 
+data that have conflcits. For example, if the rewardsReceiptStatus is 'REJECTED' then there should not exist pointsAwardedDate. And for each
+receipt, the sum of the quantityPurchased of all th items under that receipt should equal to the total purchasedItemCount.
+
+3.What do you need to know to resolve the data quality issues?
+I need to for those conflict issues in the data, which one is correct. For example, if the rewardsReceiptStatus is 'REJECTED' but there also 
+exist a specific pointsAwardedDate. Is the rewardsReceiptStatus is wrong or pointsAwardedDate is wrong. I may need to do some deep dive
+analysis and communicate with the stackholders to understand it.
+
+4.What other information would you need to help you optimize the data assets you're trying to create?
+I need more details about the features in receipts table. There are many features like barcode, needsFetchReview without detailed explanation
+information. By knowing more details, I can have a better plan to create the data assets.
+
+5.What performance and scaling concerns do you anticipate in production and how do you plan to address them?
+One concern I have is the matching rate between two tables. For example, there are not many matched barcode between
+receipt table and brand table. I will understand why the macthed rate is low and why there are many barcodes that do not exist in brand table.
